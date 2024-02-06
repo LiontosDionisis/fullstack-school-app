@@ -1,6 +1,6 @@
 package gr.aueb.cf.dao.exceptions;
 
-public class TeacherDAOException extends Exception{
+public class StudentDAOException extends Exception {
     private static final long serialVersionUID = 1L;
 
     public StudentDAOException(String s) {

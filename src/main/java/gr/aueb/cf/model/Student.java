@@ -1,6 +1,6 @@
 package gr.aueb.cf.model;
 
-public class Teacher {
+public class Student {
     private int id;
     private String firstname;
     private String lastname;
@@ -9,7 +9,7 @@ public class Teacher {
     private int cityId;
     private int userId;
 
-    public Student() { }
+    public Student() {}
 
     public Student(int id, String firstname, String lastname, char gender, String birthDate, int cityId, int userId) {
         this.id = id;
