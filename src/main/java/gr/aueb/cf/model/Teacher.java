@@ -2,22 +2,22 @@ package gr.aueb.cf.model;
 
 public class Teacher {
     private int id;
+    private String ssn;
     private String firstname;
     private String lastname;
-    private char gender;
-    private String birthDate;
-    private int cityId;
+    private int specialityId;
     private int userId;
 
-    public Student() { }
+    public Teacher() {
 
-    public Student(int id, String firstname, String lastname, char gender, String birthDate, int cityId, int userId) {
+    }
+
+    public Teacher(int id, String ssn, String firstname, String lastname, int specialityId, int userId) {
         this.id = id;
+        this.ssn = ssn;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.gender = gender;
-        this.birthDate = birthDate;
-        this.cityId = cityId;
+        this.specialityId = specialityId;
         this.userId = userId;
     }
 
@@ -27,6 +27,14 @@ public class Teacher {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     public String getFirstname() {
@@ -45,28 +53,12 @@ public class Teacher {
         this.lastname = lastname;
     }
 
-    public char getGender() {
-        return gender;
+    public int getSpecialityId() {
+        return specialityId;
     }
 
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public int getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(int cityId) {
-        this.cityId = cityId;
+    public void setSpecialityId(int specialityId) {
+        this.specialityId = specialityId;
     }
 
     public int getUserId() {
