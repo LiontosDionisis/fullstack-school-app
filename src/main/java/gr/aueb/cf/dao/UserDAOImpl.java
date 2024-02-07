@@ -56,7 +56,7 @@ public class UserDAOImpl implements IUserDAO {
             String password = user.getPassword();
             String role = user.getRole();
 
-                // Password Encryption
+
 
             ps.setString(1, username);
             ps.setString(2, BCrypt.hashpw(password, BCrypt.gensalt()));
