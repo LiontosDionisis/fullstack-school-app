@@ -96,7 +96,7 @@ public class UserServiceImpl implements IUserService{
     }
 
     private User map(UserUpdateDTO dto) {
-        return  new User(dto.getId(), dto.getUsername(), dto.getPassword(),dto.getRole());
+        return  new User(dto.getId(), dto.getUsername(), dto.getPassword(), dto.getRole());
     }
 
 }

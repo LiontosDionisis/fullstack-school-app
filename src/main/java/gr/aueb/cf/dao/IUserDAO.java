@@ -2,6 +2,7 @@ package gr.aueb.cf.dao;
 
 import gr.aueb.cf.dao.exceptions.UserDAOException;
 import gr.aueb.cf.model.User;
+import gr.aueb.cf.service.UserNotFoundException;
 
 import java.util.List;
 

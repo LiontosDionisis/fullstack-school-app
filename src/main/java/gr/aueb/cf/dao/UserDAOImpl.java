@@ -27,7 +27,7 @@ public class UserDAOImpl implements IUserDAO {
             BCrypt.hashpw(password, BCrypt.gensalt());      // Password Encryption
 
             ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(2, BCrypt.hashpw(password, BCrypt.gensalt()));
             ps.setString(3, role);
 
             int n = ps.executeUpdate();
@@ -56,11 +56,12 @@ public class UserDAOImpl implements IUserDAO {
             String password = user.getPassword();
             String role = user.getRole();
 
-            BCrypt.hashpw(password, BCrypt.gensalt());      // Password Encryption
+                // Password Encryption
 
             ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(2, BCrypt.hashpw(password, BCrypt.gensalt()));
             ps.setString(3, role);
+            ps.setInt(4, id);
 
             int n = ps.executeUpdate();
 
@@ -123,7 +124,7 @@ public class UserDAOImpl implements IUserDAO {
 
     @Override
     public User getByUsername(String username) throws UserDAOException {
-        String sql = "SELECT * FROM USERS WHERE LASTNAME LIKE ?";
+        String sql = "SELECT * FROM USERS WHERE USERNAME LIKE ?";
         User user = null;
 
         try (Connection connection = DBUtil.getConnection();

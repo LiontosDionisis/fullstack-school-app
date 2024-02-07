@@ -6,9 +6,9 @@ public class UserUpdateDTO {
     private String password;
     private String role;
 
-    UserUpdateDTO() {}
+    public UserUpdateDTO() {}
 
-    public UserUpdateDTO(Integer id, String username, String password, String role) {
+    public UserUpdateDTO(Integer id, String username,String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;

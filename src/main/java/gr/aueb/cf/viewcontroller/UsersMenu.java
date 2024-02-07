@@ -31,10 +31,7 @@ public class UsersMenu extends JFrame {
 		addWindowListener(new WindowListener() {
 			@Override
 			public void windowOpened(WindowEvent e) {
-				searchUserTxt.setText("");
-				insertUserTxt.setText("");
-				passwordTxt.setText("");
-				roleTxt.setText("");
+
 			}
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -58,7 +55,10 @@ public class UsersMenu extends JFrame {
 
 			@Override
 			public void windowActivated(WindowEvent e) {
-
+				searchUserTxt.setText("");
+				insertUserTxt.setText("");
+				passwordTxt.setText("");
+				roleTxt.setText("");
 			}
 
 			@Override
