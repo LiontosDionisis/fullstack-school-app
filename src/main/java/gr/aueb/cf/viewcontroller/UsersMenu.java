@@ -156,10 +156,11 @@ public class UsersMenu extends JFrame {
 					userDTO.setPassword(password);
 					userDTO.setRole(role);
 
-					User user = userService.insertUser(userDTO);
-
-					if (user == null) {
-						JOptionPane.showMessageDialog(null, "User not inserted", "INSERT ERROR", JOptionPane.ERROR_MESSAGE);
+					if (username.equals("") || password.equals("") || role.equals("")) {
+						JOptionPane.showMessageDialog(null, "Fields cannot be empty!","ERROR",JOptionPane.ERROR_MESSAGE);
+						return;
+					} else {
+						User user = userService.insertUser(userDTO);
 					}
 
 					JOptionPane.showMessageDialog(null, "User inserted", "INSERT", JOptionPane.INFORMATION_MESSAGE);
