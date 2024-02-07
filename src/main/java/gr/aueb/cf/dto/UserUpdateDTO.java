@@ -1,14 +1,14 @@
-package gr.aueb.cf.model;
+package gr.aueb.cf.dto;
 
-public class User {
+public class UserUpdateDTO {
     private Integer id;
     private String username;
     private String password;
     private String role;
 
-    public User() {}
+    UserUpdateDTO() {}
 
-    public User(Integer id ,String username, String password, String role) {
+    public UserUpdateDTO(Integer id, String username, String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -46,5 +46,4 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-
 }

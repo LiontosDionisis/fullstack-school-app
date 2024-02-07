@@ -9,7 +9,7 @@ public interface IUserDAO {
 
     User insert(User user) throws UserDAOException;
     User update(User user) throws UserDAOException;
-    void delete(int id) throws UserDAOException;
-    User getById(int id) throws UserDAOException;
-    List<User> getByLastName(String lastname) throws UserDAOException;
+    void delete(Integer id) throws UserDAOException;
+    User getById(Integer id) throws UserDAOException;
+    User getByUsername(String username) throws UserDAOException;
 }

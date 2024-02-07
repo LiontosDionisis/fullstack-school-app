@@ -67,7 +67,7 @@ public class UserDAOImpl implements IUserDAO {
             if (n != 1) {
                 return null;
             }
-            JOptionPane.showMessageDialog(null, n + " rows affected\n" + " User has been updated", "INSERT", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, n + " rows affected\n" + " User has been updated", "UPDATE", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e1) {
             e1.printStackTrace();
             throw new UserDAOException("SQL Update Error in User");
@@ -76,7 +76,7 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void delete(int id) throws UserDAOException {
+    public void delete(Integer id) throws UserDAOException {
         String sql = "DELETE FROM USERS WHERE ID = ?";
 
         try (Connection connection = DBUtil.getConnection();
@@ -98,7 +98,7 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public User getById(int id) throws UserDAOException {
+    public User getById(Integer id) throws UserDAOException {
         String sql = "SELECT * FROM USERS WHERE ID = ?";
         User user = null;
 
@@ -122,26 +122,26 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public List<User> getByLastName(String lastname) throws UserDAOException {
+    public User getByUsername(String username) throws UserDAOException {
         String sql = "SELECT * FROM USERS WHERE LASTNAME LIKE ?";
-        List<User> users = new ArrayList<>();
+        User user = null;
 
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet rs;
 
-            ps.setString(1, lastname);
+            ps.setString(1, username + "%");
             rs = ps.executeQuery();
 
-            while (rs.next()) {
-                User user = new User(rs.getInt("ID"), rs.getString("USERNAME"), rs.getString("PASSWORD"), rs.getString("ROLE"));
-                users.add(user);
+            if (rs.next()) {
+                 user = new User(rs.getInt("ID"), rs.getString("USERNAME"), rs.getString("PASSWORD"), rs.getString("ROLE"));
+
             }
         } catch (SQLException e1) {
             e1.printStackTrace();
             throw new UserDAOException("SQL getByLastName Error in User");
         }
-        return users;
+        return user;
     }
 }
 
